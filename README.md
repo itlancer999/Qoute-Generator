@@ -1,0 +1,2 @@
+# qoute
+random qoute generator
