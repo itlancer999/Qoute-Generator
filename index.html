@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+  	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous" />
+
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet"
+    />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
+    <link href="style.css" rel="stylesheet"/>
+
+    <title>React App</title>
+  
+  </head>
+
+  <body>
+
+  	<div id="wrapper">
+  		
+  		<div class="card text-center m-5" id="quote-box">
+		  <div class="card-header">
+		    <h1>Random Qoute Generator</h1>
+		    
+		  </div>
+
+		  
+
+		  <div class="card-body">
+		  	<i class="fas fa-quote-left icon"></i>
+			    <div class="quote-text blockquote" id="text">
+	     		</div>
+
+			    <div class="blockquote-footer" id="author">
+	     		</div>
+
+	     		<button class="btn button mt-5" onclick="qouteGen()" id="new-quote">New quote</button>
+			    
+			    <div class="buttons mt-2">Share
+			      <a
+			      href="#"
+			        class="button"
+			        id="tweet-quote"
+			        title="Tweet this quote!"
+			        target="_blank"
+			      >
+	        		<i class="fab fa-twitter icon"></i>
+	      			</a>
+	  			</div>
+			</div>
+		  
+		</div>
+	</div>
+
+		
+
+	<script>
+	
+
+		window.onload = init;
+		function init(){
+			qouteGen();
+		}
+
+		function qouteGen(){
+
+			let qouteSize = qoutes.length;
+			let randomIndex = Math.floor(Math.random()* qouteSize);
+			let randomQoute = qoutes[randomIndex];
+			let twitterLink = "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=";
+
+			//Share qoute to twitter
+			let qouteInApiFormat = randomQoute.qoute.replace(/ /g,"%20");
+			twitterLink +=qouteInApiFormat;
+
+			//Add author
+
+			let authorInApiFormat = randomQoute.author.replace(/ /g,"%20");
+			twitterLink += " -" +authorInApiFormat;
+
+			document.getElementById("tweet-quote").href = twitterLink;
+			document.getElementById("text").innerText = randomQoute.qoute;
+			document.getElementById("author").innerText = randomQoute.author;
+		}
+
+	</script>
+
+	<script src="script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+
+
+  	<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>

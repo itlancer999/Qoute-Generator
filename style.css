@@ -1,0 +1,25 @@
+body {
+  background-color:#ff6630;
+  color:#ff6630;
+}
+
+
+
+.btn {
+  background-color:#ff6630;
+ border:none;
+ 
+}
+.blockquote-footer {
+  color:#ff6630;
+}
+
+.icon {
+  color:#ff6630;
+}
+
+.buttons {
+display: block;
+text-align: right;
+}
+
